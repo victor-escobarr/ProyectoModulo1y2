@@ -7,7 +7,12 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Enigma Books</h1>
+    <table>
+      <tr>
+        <td style="text-align:center"><img src="../statics/LogoIni.jpg" width="100"></td>
+        <td><h1>Enigma Books</h1></td>
+      </tr>
+    </table>
     <form>
       <fieldset>
         <legend><h2>Editar Libro</h2></legend>
@@ -26,10 +31,13 @@
               Año:<input type="text" name="Año">
               <br>
               Editorial:<input type="text" name="Editorial">
+              <br>
+              Categoria:<input type="text" name="Categoria">
               </td>
           </tr>
           <tr>
             <td>Descripción del Libro:
+              <br>
             <textarea rows="10" cols="50"></textarea> </td>
             <td>Cambiar Archivo:<input type="file" name="PDF"></td>
           </tr>
@@ -37,5 +45,7 @@
         <input type="submit" name="SubArchivo" value="Editar Libro" >
       </fieldset>
     </form>
+    <br>
+    <input type="submit" name="GoBack" value="Regresar">
   </body>
 </html>
