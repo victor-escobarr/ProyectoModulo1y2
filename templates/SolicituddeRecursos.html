@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Enigma Books</h1>
+    <form action="Solicitudes.php" method="post">
+      <fieldset>
+        <legend><h2>Solicitar Nuevos Recursos</h2></legend>
+        <h3>Datos del Solicitante:</h3>
+        Numero de Cuenta o RFC:<input type="text" name="idUsuario">
+        <br>
+        Nombre Completo:<input type="text" name="nameUsuario">
+        <br>
+        <h3>Recurso Solicitado</h3>
+        Titulo de la Obra:<input type="text" name="Obra">
+        <br>
+        Autor:<input type="text" name="Autor">
+        <br>
+        Año:<input type="number" name="Año">
+        <br>
+        Edición:<input type="text" name="Edición">
+        <br>
+        Editorial:<input type="text" name="Editorial">
+        <br>
+        Razones:
+        <br>
+        <textarea rows="10" cols="50">Escribe las razones por la que crees que seria un recurso escencial en la biblioteca</textarea>
+        <br>
+        <input type="submit" name="Solicutar" value="Enviar Solicitud">
+         <input type="submit" name="GoBack" value="Regresar">
+      </fieldset>
+    </form>
+  </body>
+</html>
