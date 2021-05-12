@@ -1,4 +1,5 @@
 <?php
+include("../dinamics/config.php");
 echo "<!DOCTYPE html>
 <html>
   <head>
@@ -14,40 +15,60 @@ echo "<!DOCTYPE html>
         <td><h1>Enigma Books</h1></td>
       </tr>
     </table>
-    <form action='VistaSeguncuenta.php' method='post'>
+    <form action='Crearcuenta.php' method='post'>
       <fieldset style='width: 200px'>
         <legend><h3>Crear Cuenta</h3></legend>
-        Nombre(s) <br> <input type='text' name='NombreUsuario' placeholder='Ingrese su(s) nombre(s)'>
+        <label>Nombre(s) <br>
+          <input type='text' name='NombreUsuario' placeholder='Ingrese su(s) nombre(s)' required>
+        </label>
         <br>
-        Apellidos<br><input type='text' name='ApellidosUsuario' placeholder='Ingrese sus apellidos'>
+        <label>Apellido paterno<br>
+          <input type='text' name='ApellidoPaterno' placeholder='Ingrese su apellido' required>
+        </label>
         <br>
-        Correo Instituciional <br> <input type='email' name='CorreoUsuario' placeholder='Ingrese su correo'>
+        <label>Apellido materno<br>
+          <input type='text' name='ApellidoMaterno' placeholder='Ingrese su apellido' required>
+        </label>
         <br>
-        Fecha de Nacimiento <br> <input type='date' name='FNUsuario'>
+        <label>Correo Institucional <br> 
+          <input type='email' name='CorreoUsuario' placeholder='Ingrese su correo' required>
+        </label>  
         <br>
-        Numero de Cuenta o RFC <br> <input type='text' name='id_usuario' placeholder='Ingrese su #decuenta o RFC'>
+        <label>Fecha de Nacimiento <br> 
+          <input type='date' name='FNUsuario' required>
+        </label>  
         <br>
-        Contraseña <br> <input type='password' name='ContraUsuario' placeholder='Ingrese su contrseña'>
+        <label>Numero de Cuenta o RFC <br> 
+          <input type='text' name='id_usuario' maxlength='11' placeholder='Ingrese su #decuenta o RFC' required>
+        </label>  
         <br>
-        Usuario <br>
-        <select>
+        <label>Contraseña <br> 
+          <input type='password' name='ContraUsuario' placeholder='Ingrese su contrseña' required>
+        </label>
+        <br>
+        <label>Usuario <br>
+        <select name='tipoUsuario' required>
+          <option value=''>Seleccione una opción</option>
           <option value='1'>Alumno</option>
           <option value='2'>Profesor</option>
-          <option value='2'>Tecnico Académico</option>
-           <option value='2'>Laboratorista</option>
+          <option value='3'>Tecnico Académico</option>
+          <option value='4'>Laboratorista</option>
         </select>
+        </label>
         <br>
-        Tipo de Cuenta <br>
-        <select>
-          <option value='Lector'>Lector</option>
-          <option value='Bibliotecario'>Bibliotecario</option>
-          <option value='Administrador'>Administrador</option>
+        <label>Tipo de Cuenta <br>
+        <select name='tipoCuenta' required>
+          <option value=''>Seleccione una opción</option>
+          <option value='1'>Lector</option>
+          <option value='2'>Bibliotecario</option>
+          <option value='3'>Administrador</option>
         </select>
+        </label>
         <table>
           <tr>
             <td><br><input type='submit' name='CrearCuenta'value='Crear Cuenta'></td>
           </form>
-          <form>
+          <form action='Iniciarsesion.php'>
             <td><br><input type='submit' name='GoBack' value='Regresar'></td>
           </form>
             
@@ -56,4 +77,25 @@ echo "<!DOCTYPE html>
       </fieldset>
   </body>
 </html>";
+
+$conexion = connect_db();
+if (isset($_POST["NombreUsuario"])){
+  $nombre = $_POST["NombreUsuario"];
+  $apellidop = $_POST["ApellidoPaterno"];
+  $apellidom = $_POST["ApellidoMaterno"];
+  $correo = $_POST["CorreoUsuario"];
+  $fechaNacimiento = $_POST["FNUsuario"];
+  $identificador = $_POST["id_usuario"];
+  $contra = $_POST["ContraUsuario"];
+  $usuario = $_POST["tipoUsuario"];
+  $cuenta = $_POST["tipoCuenta"];
+
+  $sql = "INSERT INTO usuario (id_usuario, Nombres, Paterno, Materno, Correo, TipoUsuario, FechaNat, Contrasenia, TipoCuenta) VALUES ('$identificador','$nombre','$apellidop','$apellidom','$correo','$usuario', '$fechaNacimiento', '$contra','$cuenta')";
+  $query = mysqli_query($conexion, $sql); 
+  if ($query) {
+    echo "Tus datos se han subido correctamente";
+  } else {
+    echo "Tus datos no se han subido";
+  }
+}
 ?>
