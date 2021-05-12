@@ -7,16 +7,17 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <table>
+    <?php
+      echo "    <table>
       <tr>
-        <td><img src="../statics/LogoIni.jpg" width="100"></td>
+        <td><img src='../statics/LogoIni.jpg' width='100'></td>
         <td><h1>Enigma Books</h1></td>
       </tr>
     </table>
    
     <table border=1>
       <tr>
-        <th colspan="2"><h2>Nombre Completo</h2></th>
+        <th colspan='2'><h2>Nombre Completo</h2></th>
       </tr>
       <tr>
         <td> </td>
@@ -31,14 +32,15 @@
         <td>Fecha de Nacimiento</td>
       </tr>
       <tr>
-        <td colspan="2">Correo Electronico</td>
+        <td colspan='2'>Correo Electronico</td>
       </tr>
     </table>
     <br>
     <form>
-      <input type="submit" name="Libfav" value="Libros Favoritos">
-      <input type="submit" name="GoBack" value="Regresar">
-      <input type="submit" name="DeleteUs" value="Eliminar Usuario">
-    </form>
+      <input type='submit' name='Libfav' value='Libros Favoritos'>
+      <input type='submit' name='GoBack' value='Regresar'>
+      <input type='submit' name='DeleteUs' value='Eliminar Usuario'>
+    </form>";
+    ?>
   </body>
 </html>
