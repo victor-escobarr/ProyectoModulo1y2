@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
   </head>
   <body>
-    <table>
+    <?php
+      echo "<table>
       <tr>
-        <td><img src="../statics/LogoIni.jpg" width="100"></td>
+        <td><img src='../statics/LogoIni.jpg' width='100'></td>
         <td><h1>Enigma Books</h1></td>
       </tr>
     </table>
     <fieldset>
       <legend><h2>Ver Usuarios</h2></legend>
-      <input type="submit" name="Agregar" value="Agregar Usuario">
+      <form action='' method='POST'>
+      <input type='submit' name='Agregar' value='Agregar Usuario'>
       <br><br>
       <table border=1>
         <tr>
@@ -25,13 +27,17 @@
         <tr>
           <td colspan>Tipo de Cuenta</td>
           <td colspan>
-            <input type="submit" name="Eliminar" value="Eliminar Usuario">
+          <form action='' method='POST'>
+            <input type='submit' name='Eliminar' value='Eliminar Usuario'>
+          </form>
           </td>
         </tr>
       </table>
-      
     </fieldset>
     <br>
-    <input type="submit" name="GoBack" value="Regresar">
+    <form action='' method='POST'>
+      <input type='submit' name='GoBack' value='Regresar'>
+    </form>";
+    ?>
   </body>
 </html>
