@@ -137,8 +137,8 @@ DROP TABLE IF EXISTS `libro`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `libro` (
   `id_libro` tinyint(4) NOT NULL AUTO_INCREMENT,
-  `Imagen` blob DEFAULT NULL,
-  `Pdf` blob DEFAULT NULL,
+  `Imagen` varchar(200) DEFAULT NULL,
+  `Pdf` varchar(200) DEFAULT NULL,
   `Titulo` varchar(50) DEFAULT NULL,
   `Autor` varchar(50) DEFAULT NULL,
   `Editorial` varchar(50) DEFAULT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE `libro` (
   `Genero` varchar(50) DEFAULT NULL,
   `Categoria` enum('+12','+15','+18') DEFAULT NULL,
   PRIMARY KEY (`id_libro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +155,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
+INSERT INTO `libro` VALUES (1,'../statics/Portadas/La Tumba del Tirano.jpeg','../PDF/La Tumba del Tirano.pdf','La Tumba del Tirano','Rick Riordan','Hyperion',2019,'Fantasia','+15'),(2,'../statics/Portadas/El Heroe Perdido.jpeg','../PDF/El Heroe Perdido.pdf','El Heroe Perdido','Rick Riordan','Lelibros',2010,'Fantasia','+15'),(3,'../statics/Portadas/La Corona y los Dragones.jpeg','../PDF/La Corona y los Dragones.pdf','La Corona y los Dragones','Fernando Pinilla','Pinilla',2020,'Fantasia','+15'),(4,'../statics/Portadas/Divergente.jpeg','../PDF/Divergente.pdf','Divergente','Veronica Roth','Lectulandia',2011,'Fantasia','+15'),(5,'../statics/Portadas/El Dragon Renacido.jpeg','../PDF/El Dragon Renacido.pdf','EL Dragón Renacido','Robert Jordan','LeLibros',1991,'Fantasia','+15'),(6,'../statics/Portadas/El Ojo del Mundo.jpeg','../PDF/El Ojo del Mundo.pdf','El Ojo del Mundo','Robert Jordan','LeLibros',1990,'Fantasia','+15'),(7,'../statics/Portadas/Corazones en la Atlantida.jpeg','../PDF/Corazones en la Atlantida.pdf','Corazones en la Atlántida','Stephen King','LeLibros',1999,'Terror','+18'),(8,'../statics/Portadas/Ciudad de los Angeles Caidos.jpeg','../PDF/Ciudad-de-los-Angeles-Caidos-Cassandra-Clare.pdf','Ciudad de los Angeles Caidos','Cassandra Clare','LeLibros',2011,'Fantasia','+15'),(9,'../statics/Portadas/Prueba de Fuego.jpeg','../PDF/Maze-Runner-Prueba-de-fuego-James-Dashner.pdf','Prueba de Fuego','James Dashner','LeLibros',2010,'Fantasia','+15'),(10,'../statics/Portadas/Puro.jpeg','../PDF/Puro-Jennifer-L-Armentrout.pdf','Puro','Jennifer L Armentrout','LeLibros',2012,'Fantasia','+15'),(11,'../statics/Portadas/El Extraño Caso del Dr.Kelly y Mr. Hyde.jpeg','../PDF/El-Extrano-Caso-del-Doctor-Jeky-Robert-Louis-Stevenson.pdf','El Extraño Caso del Dr.Kelly y Mr. Hyde','Robert Louis Stevenson','LeLibros',0000,'Terror','+15'),(12,'../statics/Portadas/El Sueño del Celta.jpeg','../PDF/El-Sueno-del-Celta-Mario-Vargas-Llosa.pdf','El Sueño del Celta','Mario Vargas Llosa','LeLibros',2010,'Fantasia','+15'),(13,'../statics/Portadas/La Carretera.jpeg','../PDF/La-Carretera-Cormac-McCarthy.pdf','La Carretera','Cormac McCarthy','LeLibros',2006,'Terror','+15'),(14,'../statics/Portadas/Magos amantes y ladrones.jpeg','\"../PDF/Magos','-amantes-y-ladrones-Nora-Roberts.pdf\"','Magos Amantes y Ladrones','Nora Roberts',0000,'1955','+15'),(15,'../statics/Portadas/Viento y Ceniza.jpeg','../PDF/Viento-y-ceniza-Diana-Gabaldon.pdf','Viento y Ceniza','Diana Gabaldon','LeLibros',2005,'Romance','+15'),(16,'../statics/Portadas/Yo antes de Ti.jpeg','../PDF/Yo-antes-de-ti-Jojo-Moyes.pdf','Yo antes de Ti','Jojo Moyes','LeLibros',2012,'Romance','+15'),(17,'../statics/Portadas/La Torre de Oro.jpeg','../PDF/Magisterium-La-Torre-De-Oro-Holly-Black.pdf','La Torre de Oro','Cassandra Clare','Lectulandia',2018,'Fantasia','+15'),(18,'../statics/Portadas/Solo quedo Nuestra Historia.jpeg','../PDF/Solo-quedo-nuestra-historia-Adam-Silvera.pdf','Solo quedo Nuestra Historia','Adam Silvera','LeLibros',2017,'Romance','+15'),(19,'../statics/Portadas/Al Final Mueren los Dos.jpeg','../PDF/Al-final-mueren-los-dos-Adam-Silvera.pdf','Al Final Mueren los Dos','Adam Silvera','LeLibros',2017,'Romance','+15'),(20,'../statics/Portadas/Todas las Hadas del Reino.jpeg','../PDF/Todas-las-hadas-del-reino-Laura-Gallego-Garcia.pdf','Todas las Hadas del Reino','Laura Gallego Garcia','LeLibros',2015,'Fantasia','+15');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12  0:05:59
+-- Dump completed on 2021-05-12 13:56:54
