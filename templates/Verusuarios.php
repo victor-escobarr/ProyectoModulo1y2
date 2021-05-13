@@ -35,7 +35,7 @@
       </table>
     </fieldset>
     <br>
-    <form action='' method='POST'>
+    <form action='Redireccionar.php' method='post'>
       <input type='submit' name='GoBack' value='Regresar'>
     </form>";
     ?>

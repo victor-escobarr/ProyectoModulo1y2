@@ -41,7 +41,9 @@
         <input type='submit' name='Solicutar' value='Enviar Solicitud'>
       </fieldset>
       <br>
-      <input type='submit' name='GoBack' value='Regresar'>
+      </form>
+      <form action='Redireccionar.php' method='post'>
+        <input type='submit' name='GoBack' value='Regresar'>  
     </form>";
     ?>
   </body>

@@ -1,4 +1,9 @@
 <?php
+include("../dynamics/config.php");
+$Titulo="Titulo";
+$id="id_libro";
+$imagen="Imagen";
+$cuenta=0;
  echo "<!DOCTYPE html>
 <html>
   <head>
@@ -15,8 +20,8 @@
         <td><img src='../statics/LetrasLogo.jpg' width='150'></td>
       </tr>
       <tr>
-        <form action='Resultados.php' method='post'>
-          <td colspan='3'>Buscar: <input type='search' name='buscar'></td>
+        <form action='Redireccionar.php' method='post'>
+          <td colspan='4'>Buscar: <input type='search' name='buscar'></td>
           <td rowspan='3'>
               <input type='submit' name='Perfil' value='Perfil'>
               <br>
@@ -28,32 +33,60 @@
               <br>
               <input type='submit' name='Historial' value='Historial de Descargas'>
               <br>
-              <input type='submit' name='Historial' value='Ver Usuarios'>
+              <input type='submit' name='VerUs' value='Ver Usuarios'>
               <br>
               <input type='submit' name='Cerrar' value='Cerrar Sesión'>
               <br>
           </td>
+        </form>
       </tr>
       <tr>
-        <td colspan='3'><input type='radio' name='Buscar' value='Name'>Nombre
+        <td colspan='4'><input type='radio' name='Buscar' value='Name'>Nombre
         <input type='radio' name='Buscar' value='Year'>Año
         <input type='radio' name='Buscar' value='Categoría'>Categoría
         <input type='radio' name='Buscar' value='Genero'>Genero
         <input type='radio' name='Buscar' value='Edit'>Editorial
         <input type='radio' name='Buscar' value='Autor'>Autor</td>
-      </tr>
+      </tr>";
+      $conexion = connect_db();
+      $consultasql="SELECT * FROM Libro";
+      $query= mysqli_query($conexion,$consultasql);
+      while($row=mysqli_fetch_array($query)){
+        if($cuenta==4)
+        {
+          $cuenta=1;
+        }
+        else{
+          $cuenta++;
+        }
+       if($cuenta==1)
+       {
+         echo "<tr>";
+       }
+        echo "<td>";
+        echo "<img src='".$row[$imagen]."' width=200>";
+        echo "<br>";
+        echo $row[$Titulo];
+        echo "<br>";
+        echo $row[$id];
+        echo "<br>";
+        echo "<form action='Datos.php' method='post'>";
+          echo "<input type='hidden' name='Lib' value=$row[$id]>";
+          echo "<input type='submit' name='VerLib' value='Ver Libro'>";
+        echo "</form>";
+        echo "</td>";
+        if($cuenta==4)
+        {
+          echo "</tr>";
+        }
+      }
+      echo "
       <tr>
-        <td>Libro id_libro <input type='submit' name='VerLib' value='Ver Libro'></td>
         <td></td>
         <td></td>
+        <td></td>
+        <td>Equipo Tea Rexes UWU <br> Proyecto del Modulo 1 y del 2 <br> Ayuda nos estamos Muriendo</td>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Descrpción</td>
-      </tr>
-    </form>
     </table>
   </body>
 </html>";
