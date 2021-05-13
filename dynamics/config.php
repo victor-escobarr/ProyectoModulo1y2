@@ -11,6 +11,4 @@ function connect_db(){
     }
     return $con;
 }
-
-
 ?>
