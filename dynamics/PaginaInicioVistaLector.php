@@ -21,7 +21,7 @@ echo "<!DOCTYPE html>
       </tr>
       <tr>
         <form action='Redireccionar.php' method='post'>
-          <td colspan='4'>Buscar: <input type='search' name='buscar'></td>
+          <td colspan='4'>Buscar: <input type='search' name='busca'></td>
           <td rowspan='3'>
               <input type='submit' name='Perfil' value='Perfil'>
               <br>
@@ -32,15 +32,17 @@ echo "<!DOCTYPE html>
               <input type='submit' name='Cerrar' value='Cerrar Sesión'>
               <br>
           </td>
-        </form>
+        
       </tr>
       <tr>
-        <td colspan='4'><input type='radio' name='Buscar' value='Name'>Nombre 
-          <input type='radio' name='Buscar' value='Year'>Año
-          <input type='radio' name='Buscar' value='Categoría'>Categoría
-          <input type='radio' name='Buscar' value='Genero'>Genero
-          <input type='radio' name='Buscar' value='Edit'>Editorial
-          <input type='radio' name='Buscar' value='Autor'>Autor</td>
+        <td colspan='3'><input type='radio' name='Buscar' value='0' required>Nombre 
+          <input type='radio' name='Buscar' value='1'>Año
+          <input type='radio' name='Buscar' value='2'>Categoría
+          <input type='radio' name='Buscar' value='3'>Genero
+          <input type='radio' name='Buscar' value='4'>Editorial
+          <input type='radio' name='Buscar' value='5'>Autor</td>
+          <td><input type='submit' name='Serach' value='Buscar'></td>
+        </form>
       </tr>";
         $conexion = connect_db();
         $consultasql="SELECT * FROM Libro";
