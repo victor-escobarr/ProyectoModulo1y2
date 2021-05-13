@@ -8,6 +8,8 @@
   </head>
   <body>
     <?php
+      //Este echo imprime la tabla de datos del usuario
+      session_start();
       echo "<table>
       <tr>
         <td><img src='../statics/LogoIni.jpg' width='100'></td>

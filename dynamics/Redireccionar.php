@@ -2,6 +2,10 @@
 session_start();
 include("config.php");
 $id="id_libro";
+
+    /*Este gran bloque de if's permite redirigir al usuario a las diversas páginas dependiendo el botón que presione.
+    Recibe la acción desde cualquier página y a su vez redireccionar.php se encarga de mandarlo a otra. Además, si el botón debe generar más allá 
+    de una reubicación también se encarga de ello para que la próxima página esté lista*/
     if(isset($_POST["Perfil"])){
         header('Location:./Perfil.php');
     }

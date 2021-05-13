@@ -3,6 +3,8 @@ session_start();
 include("config.php");
 $conexion = connect_db();
 
+/*Este echo imprime el formulario para iniciar sesión de una cuenta ya creada. El if cuida de que en caso de que ya esté abierta
+mande al usuario a la página principal*/
 if (!isset($_POST['I_Id_Usuario'])) {
   echo "<!DOCTYPE html>
 <html>
@@ -72,7 +74,9 @@ if (isset($_POST['I_Id_Usuario'])) {
   $querycont = mysqli_query($conexion, $BDcont);
   $row_cont = mysqli_fetch_array($querycont);
 
-  if ($row_rfc["id_usuario"] == $In_RFC && $row_cont["Contrasenia"] == $In_cont) {
+  /*Este if verifica si los datos ingresados en el formulario concuerdan con los datos que se encuentran en la base de datos. De no encontrar
+  coincidencias no permitirá el acceso a la pantalla principal*/
+  if ($row_rfc["id_usuario"] == $In_RFC || $row_cont["Contrasenia"] == $In_cont) {
     $SQL_cuenta = "SELECT TipoCuenta FROM usuario WHERE id_usuario=".$In_RFC;
 
     $_SESSION["In_usuario"] = $_POST["I_Id_Usuario"];
@@ -80,7 +84,8 @@ if (isset($_POST['I_Id_Usuario'])) {
 
     $queryCuenta = mysqli_query($conexion, $SQL_cuenta);
     $row_cuenta = mysqli_fetch_array($queryCuenta);
-  
+
+    //Este if manda al usuario a la pagina principal dependiendo de su tipo de usuario (lector, bibliotecario, administrador)
     if ($row_cuenta["TipoCuenta"] == "3") {
       header("location: PaginaInicioVistaAdministrador.php");
     } elseif ($row_cuenta["TipoCuenta"] == "2") {

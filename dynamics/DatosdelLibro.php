@@ -1,6 +1,6 @@
 <?php
 
-include("../dynamics/config.php");
+include("config.php");
 $Titulo="Titulo";
 $id="id_libro";
 $imagen="Imagen";
@@ -60,9 +60,6 @@ echo "<!DOCTYPE html>
       <tr>
         <td>".$row[$Autor]."</td>
         <td>".$row[$Año]."</td>
-      </tr>
-      <tr>
-        <td colspan='2'>".$row[$Descrpcion]."</td>
       </tr>
     </table>";
 
