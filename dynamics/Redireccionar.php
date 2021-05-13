@@ -28,7 +28,7 @@ $id="id_libro";
     }
     if(isset($_POST["GoBack"])){
         //Cambiar dependiendo del tipo de Usuario.
-        header('Location:./PaginaInicioVistaAdministrador.php');
+        header('Location:./Iniciarsesion.php');
     }
     if(isset($_POST["ALibFav"])){
         $Libro=$_POST["Usar"];

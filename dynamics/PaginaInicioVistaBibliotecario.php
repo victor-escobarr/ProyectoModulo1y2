@@ -1,4 +1,5 @@
 <?php
+//pagina con privilegios de usuario bibliotecario
 include("../dynamics/config.php");
 $Titulo="Titulo";
 $id="id_libro";

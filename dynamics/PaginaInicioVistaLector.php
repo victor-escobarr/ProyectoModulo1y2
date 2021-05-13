@@ -1,4 +1,5 @@
 <?php
+//pagina con privilegios de usuario normal
 include("../dynamics/config.php");
 $Titulo="Titulo";
 $id="id_libro";
@@ -45,7 +46,7 @@ echo "<!DOCTYPE html>
         </form>
       </tr>";
         $conexion = connect_db();
-        $consultasql="SELECT * FROM Libro";
+        $consultasql="SELECT * FROM Libro"; //con esto vamos a ver todos los libros
         $query= mysqli_query($conexion,$consultasql);
         while($row=mysqli_fetch_array($query)){
           if($cuenta==4)
@@ -60,11 +61,11 @@ echo "<!DOCTYPE html>
            echo "<tr>";
          }
           echo "<td>";
-          echo "<img src='".$row[$imagen]."' width=200>";
+          echo "<img src='".$row[$imagen]."' width=200>"; //imagen
           echo "<br>";
-          echo $row[$Titulo];
+          echo $row[$Titulo]; //titulos
           echo "<br>";
-          echo $row[$id];
+          echo $row[$id]; //su id
           echo "<br>";
           echo "<form action='DatosdelLibro.php' method='post'>";
             echo "<input type='hidden' name='Lib' value=$row[$id]>";
