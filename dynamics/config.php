@@ -2,7 +2,7 @@
 define("dbuser", "root");
 define("dbhost", "localhost");
 define ("PASSWORD","");
-define ("DB", "BDBiblio");
+define ("DB", "Biblioteca");
 
 function connect_db(){
     $con = mysqli_connect(dbhost,dbuser,  PASSWORD,DB );

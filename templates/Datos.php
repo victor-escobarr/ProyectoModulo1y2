@@ -1,5 +1,4 @@
 <?php
-
 include("../dynamics/config.php");
 $Titulo="Titulo";
 $id="id_libro";
@@ -42,10 +41,12 @@ echo "<!DOCTYPE html>
           <td colspan='2'>
             <a href='$Abrir' target='_blank'><input type='submit' name='Online' value='Leer en el Navegador'></a>
             <a href='$Abrir' download='$Abrir'><input type='submit' name='Descargar' value='Descargar'></a>
-          <form action='Redireccionar.php' method='post' >
+           <form action='Redireccionar.php' method='post'>
             <input type='hidden' name='Usar' value='$row[$id]'>
             <input type='submit' name='ALibFav' value='Agregar a Favoritos'>
             <input type='submit' name='Reporte' value='Reportar'>
+            <input type='submit' name='Edit' value='Editar'>
+            <input type='submit' name='Delete' value='Eliminar'>
           </form>
           </td>
         </tr>
@@ -73,4 +74,5 @@ echo "<!DOCTYPE html>
 </form>
 </body>
 </html>";
+?>
 ?>

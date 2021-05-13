@@ -1,5 +1,5 @@
 <?php
-include("../dinamics/config.php");
+include("../dynamics/config.php");
 echo "<!DOCTYPE html>
 <html>
   <head>
@@ -49,10 +49,10 @@ echo "<!DOCTYPE html>
         <label>Usuario <br>
         <select name='tipoUsuario' required>
           <option value=''>Seleccione una opción</option>
-          <option value='1'>Alumno</option>
-          <option value='2'>Profesor</option>
-          <option value='3'>Tecnico Académico</option>
-          <option value='4'>Laboratorista</option>
+          <option value='Alumno'>Alumno</option>
+          <option value='Profesor'>Profesor</option>
+          <option value='Tecnico Academico'>Tecnico Académico</option>
+          <option value='Laboratorista'>Laboratorista</option>
         </select>
         </label>
         <br>
@@ -89,8 +89,7 @@ if (isset($_POST["NombreUsuario"])){
   $contra = $_POST["ContraUsuario"];
   $usuario = $_POST["tipoUsuario"];
   $cuenta = $_POST["tipoCuenta"];
-
-  $sql = "INSERT INTO usuario (id_usuario, Nombres, Paterno, Materno, Correo, TipoUsuario, FechaNat, Contrasenia, TipoCuenta) VALUES ('$identificador','$nombre','$apellidop','$apellidom','$correo','$usuario', '$fechaNacimiento', '$contra','$cuenta')";
+  $sql = "INSERT INTO usuario (id_usuario, Nombre, Paterno, Materno, Correo, TipoUsuario, FechaNat, Contrasenia, TipoCuenta) VALUES ('$identificador','$nombre','$apellidop','$apellidom','$correo','$usuario', '$fechaNacimiento', '$contra','$cuenta')";
   $query = mysqli_query($conexion, $sql); 
   if ($query) {
     echo "Tus datos se han subido correctamente";

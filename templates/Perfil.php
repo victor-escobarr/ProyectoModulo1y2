@@ -8,7 +8,7 @@
   </head>
   <body>
     <?php
-      echo "    <table>
+      echo "<table>
       <tr>
         <td><img src='../statics/LogoIni.jpg' width='100'></td>
         <td><h1>Enigma Books</h1></td>
@@ -36,8 +36,8 @@
       </tr>
     </table>
     <br>
-    <form>
-      <input type='submit' name='Libfav' value='Libros Favoritos'>
+    <form action='Redireccionar.php' method='post'>
+      <input type='submit' name='LibFav' value='Libros Favoritos'>
       <input type='submit' name='GoBack' value='Regresar'>
       <input type='submit' name='DeleteUs' value='Eliminar Usuario'>
     </form>";

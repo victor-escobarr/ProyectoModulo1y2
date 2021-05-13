@@ -47,7 +47,9 @@ echo "<!DOCTYPE html>
       </fieldset>
     </form>
     <br>
-    <input type='submit' name='GoBack' value='Regresar'>
+    <form action='Redireccionar.php' method='post'>
+      <input type='submit' name='GoBack' value='Regresar'>
+    </form>
   </body>
 </html>";
 ?>

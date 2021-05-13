@@ -29,7 +29,9 @@ echo "<!DOCTYPE html>
     </tr>
    </table>
    <br>
+   <form action='Redireccionar.php' method='post'>
     <input type='submit' name='GoBack' value='Regresar'>
+  </form>
   </body>
 </html>";
 ?>
