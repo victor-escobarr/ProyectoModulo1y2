@@ -1,6 +1,5 @@
 <?php
-session_start();
-include("config.php");
+include("../dynamics/config.php");
 $id="id_libro";
     if(isset($_POST["Perfil"])){
         header('Location:./Perfil.php');
@@ -25,10 +24,7 @@ $id="id_libro";
     }
     if(isset($_POST["GoBack"])){
         //Cambiar dependiendo del tipo de Usuario.
-        header('Location:./Iniciarsesion.php');
-    }
-    if(isset($_POST["Cerrar"])){
-        header('Location:./cerrar.php');
+        header('Location:./PaginaInicioVistaAdministrador.php');
     }
     if(isset($_POST["ALibFav"])){
         $Libro=$_POST["Usar"];
@@ -43,13 +39,17 @@ $id="id_libro";
         header('Location:./LibrosFavoritos.php');
     }
     if(isset($_POST["Reporte"])){
-        header('Location:./Reporte.php');
+        $Libro=$_POST["Usar"];
+        echo "<form action='Reporte.php' method='post'>
+            <input type='hidden' name='Usar' value='$Libro'>
+            <input type='submit' name='Edit Libro' value='Reportar'>
+          </form>";
     }
     if(isset($_POST["Edit"])){
         $Libro=$_POST["Usar"];
         echo "<form action='Editarlibro.php' method='post'>
             <input type='hidden' name='Usar' value='$Libro'>
-            <input type='submit' name='Edit Libro' value='Editar'>
+            <input type='submit' name='EditLibro' value='Editar'>
           </form>";
     }
     if(isset($_POST["Delete"])){
@@ -64,5 +64,14 @@ $id="id_libro";
         $query3= mysqli_query($conexion,$n);
         $consultasql="DELETE FROM Libro WHERE id_libro=$Libro";
         $query= mysqli_query($conexion,$consultasql);   
+    }
+    if(isset($_POST["Serach"])){
+        $Busqueda=$_POST["busca"];
+        $Sehizo=$_POST["Buscar"];
+        echo "<form action='Resultadosbusqueda.php' method='post'>
+            <input type='hidden' name='Buscar' value='$Busqueda'>
+            <input type='hidden' name='Categoria' value=$Sehizo>
+            <input type='submit' name='Find' value='Buscar'>
+          </form>";
     }
 ?>
