@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../dynamics/config.php");
+$conexion = connect_db();
 
 if (!isset($_POST['I_Id_Usuario'])) {
   echo "<!DOCTYPE html>
@@ -41,19 +42,42 @@ if (!isset($_POST['I_Id_Usuario'])) {
       </fieldset>
   </body>
 </html>";
-} 
+} elseif (isset($_SESSION["In_usuario"])) {
+    $SQL_cuenta = "SELECT * FROM usuario WHERE id_usuario=".$_SESSION["In_usuario"];
+
+    $queryCuenta = mysqli_query($conexion, $SQL_cuenta);
+    $row_cuenta = mysqli_fetch_array($queryCuenta);
+  
+    if ($row_cuenta["TipoCuenta"] == "3") {
+      header("location: PaginaInicioVistaAdministrador.php");
+    } elseif ($row_cuenta["TipoCuenta"] == "2") {
+      header("location: PaginaInicioVistaBibliotecario.php");
+    } elseif ($row_cuenta["TipoCuenta"] == "1") {
+      header("location: PaginaInicioVistaLector.php");
+    }
+}
 
 
-$conexion = connect_db();
+
 if (isset($_POST['I_Id_Usuario'])) {
   $In_RFC = $_POST['I_Id_Usuario'];
   $In_cont = $_POST['I_ContraseñaIUsuario'];
 
-  $_SESSION["In_usuario"] = $_POST["I_Id_Usuario"];
-  $_SESSION["In_cont"] = $_POST["I_ContraseñaIUsuario"];
+  $BDrfc = "SELECT id_usuario FROM usuario WHERE id_usuario=".$In_RFC;
+  echo $BDrfc;
+  $queryrfc = mysqli_query($conexion, $BDrfc);
+  $row_rfc = mysqli_fetch_array($queryrfc);
+  $BDcont = "SELECT Contrasenia FROM usuario WHERE id_usuario=".$In_RFC." AND contrasenia='".$In_cont."'";
+  echo $BDcont;
+  $querycont = mysqli_query($conexion, $BDcont);
+  $row_cont = mysqli_fetch_array($querycont);
 
-  if ("SELECT id_usuario FROM usuario WHERE id_usuario==$In_RFC" && "SELECT contrasenia FROM usuario WHERE contrasenia==$In_cont") {
-    $SQL_cuenta = "SELECT * FROM usuario WHERE id_usuario=$In_RFC";
+  if ($row_rfc["id_usuario"] == $In_RFC && $row_cont["Contrasenia"] == $In_cont) {
+    $SQL_cuenta = "SELECT TipoCuenta FROM usuario WHERE id_usuario=".$In_RFC;
+
+    $_SESSION["In_usuario"] = $_POST["I_Id_Usuario"];
+    $_SESSION["In_cont"] = $_POST["I_ContraseñaIUsuario"];
+
     $queryCuenta = mysqli_query($conexion, $SQL_cuenta);
     $row_cuenta = mysqli_fetch_array($queryCuenta);
   
