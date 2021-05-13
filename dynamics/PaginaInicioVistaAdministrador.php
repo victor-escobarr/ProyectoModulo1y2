@@ -1,10 +1,12 @@
 <?php
-include("../dynamics/config.php");
+session_start();
+include("config.php");
+$conexion = connect_db();
 $Titulo="Titulo";
 $id="id_libro";
 $imagen="Imagen";
 $cuenta=0;
- echo "<!DOCTYPE html>
+echo "<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
@@ -36,8 +38,9 @@ $cuenta=0;
               <input type='submit' name='VerUs' value='Ver Usuarios'>
               <br>
               <input type='submit' name='Cerrar' value='Cerrar Sesión'>
-              <br>
-          </td>
+              <br>";
+
+echo "</td>
         </form>
       </tr>
       <tr>
@@ -48,7 +51,6 @@ $cuenta=0;
         <input type='radio' name='Buscar' value='Edit'>Editorial
         <input type='radio' name='Buscar' value='Autor'>Autor</td>
       </tr>";
-      $conexion = connect_db();
       $consultasql="SELECT * FROM Libro";
       $query= mysqli_query($conexion,$consultasql);
       while($row=mysqli_fetch_array($query)){

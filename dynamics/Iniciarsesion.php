@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../dynamics/config.php");
+include("config.php");
 $conexion = connect_db();
 
 if (!isset($_POST['I_Id_Usuario'])) {

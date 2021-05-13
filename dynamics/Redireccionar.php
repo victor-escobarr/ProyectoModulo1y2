@@ -1,5 +1,6 @@
 <?php
-include("../dynamics/config.php");
+session_start();
+include("config.php");
 $id="id_libro";
     if(isset($_POST["Perfil"])){
         header('Location:./Perfil.php');
@@ -24,7 +25,10 @@ $id="id_libro";
     }
     if(isset($_POST["GoBack"])){
         //Cambiar dependiendo del tipo de Usuario.
-        header('Location:./PaginaInicioVistaAdministrador.php');
+        header('Location:./Iniciarsesion.php');
+    }
+    if(isset($_POST["Cerrar"])){
+        header('Location:./cerrar.php');
     }
     if(isset($_POST["ALibFav"])){
         $Libro=$_POST["Usar"];

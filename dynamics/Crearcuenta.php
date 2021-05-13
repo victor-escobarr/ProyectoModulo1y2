@@ -1,5 +1,5 @@
 <?php
-include("../dynamics/config.php");
+include("config.php");
 echo "<!DOCTYPE html>
 <html>
   <head>
